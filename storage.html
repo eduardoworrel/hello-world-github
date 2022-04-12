@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+
+        objetoGigante = localStorage.getItem('objetoGigante');
+        if(objetoGigante == null){
+            objetoGigante = {}
+            objetoGigante.nombre = "Juan";
+            objetoGigante.edad = "23";
+            objetoGigante.peso = "80";
+            objetoGigante.array = ["uno", "dos", "tres"];
+            localStorage.setItem('objetoGigante', JSON.stringify(objetoGigante));
+        }
+        else{
+            objetoGigante = JSON.parse(objetoGigante);
+            objetoGigante.array.push("cuatro");
+            localStorage.setItem('objetoGigante', JSON.stringify(objetoGigante));
+        }
+
+        document.body.innerHTML = '<pre>'+JSON.stringify(objetoGigante)+"</pre>"; 
+      
+
+    </script>
+</body>
+</html>
